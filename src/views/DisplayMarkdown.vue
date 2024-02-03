@@ -1,0 +1,3 @@
+<template>
+    <div class="tip" markdown="1">Have **fun!**</div>
+</template>
