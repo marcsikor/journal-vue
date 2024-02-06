@@ -13,7 +13,7 @@
 <script setup>
     import { ref } from 'vue';
     import { getAuth, onAuthStateChanged, signOut  } from "firebase/auth";
-    import { appFirebase } from "../firebase/config"
+    import { appFirebase } from "../firebase-config/config"
     import router from "../router";
     
     const auth = getAuth(appFirebase)

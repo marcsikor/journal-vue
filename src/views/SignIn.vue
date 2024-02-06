@@ -19,7 +19,7 @@
     import { ref } from "vue";
     import router from "../router";
     import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-    import { appFirebase } from "../firebase/config"
+    import { appFirebase } from "../firebase-config/config"
 
     const email = ref("");
     const password = ref("");

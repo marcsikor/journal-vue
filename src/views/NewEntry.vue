@@ -35,7 +35,7 @@
 <script setup>
     import { ref } from "vue";
     import { doc, setDoc } from "firebase/firestore"; 
-    import { db, getUser } from "../firebase/config"
+    import { db, getUser } from "../firebase-config/config"
     import { uuid } from 'vue-uuid';
     import { marked } from 'marked';
     import router from "../router";

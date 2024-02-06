@@ -18,7 +18,7 @@
 
 <script setup>
   import { ref, onMounted } from "vue";
-  import { getUser, db } from "../firebase/config"
+  import { getUser, db } from "../firebase-config/config"
   import { collection, query, where, getDocs } from "firebase/firestore";
 
   const currentlySignedUser = ref(null);

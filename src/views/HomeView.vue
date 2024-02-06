@@ -26,7 +26,7 @@
 
 <script setup>
   import { ref, onMounted } from "vue";
-  import { getUser } from "../firebase/config";
+  import { getUser } from "../firebase-config/config";
 
   const loggedIn = ref(null)
   

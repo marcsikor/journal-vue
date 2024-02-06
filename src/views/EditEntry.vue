@@ -35,7 +35,7 @@
       import { ref, onMounted } from "vue";
       import { useRoute } from "vue-router";
       import { doc, getDoc, updateDoc } from "firebase/firestore"; 
-      import { db } from "../firebase/config"
+      import { db } from "../firebase-config/config"
       import { marked } from 'marked';
       import router from "../router";
 
