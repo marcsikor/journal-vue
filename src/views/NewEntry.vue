@@ -70,7 +70,7 @@
 <style scoped>
 
 #textoutput{
-    white-space: pre-wrap;
+    white-space: normal;
 }
 .textarea-custom{
     height: 470px;

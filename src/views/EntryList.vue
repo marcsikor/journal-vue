@@ -61,7 +61,7 @@
 }
 
 .card-header-custom{
-  background-color: #dfdfdf71 !important;
+  background-color: #dfdfdf1e !important;
 }
 p{
   margin-bottom: 0 !important;

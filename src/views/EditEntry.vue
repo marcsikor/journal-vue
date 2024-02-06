@@ -1,5 +1,5 @@
 <template>
-    <h3 class="text-center my-5">Edit entry {{ title }}</h3>
+    <h3 class="text-center my-5">Edit entry "{{ title }}"</h3>
     <div class="row">
       <div class="col-md">
           <form>
@@ -37,7 +37,7 @@
       import { doc, getDoc, updateDoc } from "firebase/firestore"; 
       import { db } from "../firebase/config"
       import { marked } from 'marked';
-import router from "@/router";
+      import router from "../router";
 
       const content = ref("");
       const title = ref("");
@@ -83,7 +83,7 @@ import router from "@/router";
   <style scoped>
   
   #textoutput{
-    white-space: pre-wrap;
+    white-space: normal !important;
   }
   .textarea-custom{
       height: 500px;

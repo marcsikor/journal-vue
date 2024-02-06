@@ -1,5 +1,5 @@
 <template>
-    <h3 class="text-center my-5">View entry {{ title }}</h3>
+    <h3 class="text-center my-5">View entry "{{ title }}"</h3>
     <div class="form-group">
         <div id="textoutput" class="form-control output-height mx-5">
             <small v-if="output || title">Created on {{ createdDate }}</small>
@@ -64,7 +64,7 @@
 <style scoped>
 
 #textoutput{
-  white-space: pre-wrap;
+  white-space: normal;
   width: auto !important;
 }
 .textarea-heigth{
