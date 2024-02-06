@@ -1,33 +1,61 @@
 <template>
-  <h1>Welcome to a simple journaling app</h1>
-  <div v-if="loggedIn === false">
-    Please create an account or log in to use the application:
-    <router-link class="btn btn-outline-success" to="/signin">Navbar2</router-link>
-    <router-link class="btn btn-outline-success" to="/signup">Navbar3</router-link>
+  <h1 class="text-center" id="customheader">Welcome to a simple journaling app</h1>
+  <div v-if="loggedIn == null">
+    <h2 class="text-center customsubheader">Please create an account or log in to use the application</h2>
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <router-link class="btn btn-outline-success homebutton" to="/signin">Sign in</router-link>
+      </div>
+      <div class="col-md-6 text-center">
+        <router-link class="btn btn-outline-success homebutton" to="/signup">Sign up</router-link>
+      </div>
+    </div>
   </div>
-  <div v-if="loggedIn">
-    Create or view journal entries:
-    <router-link class="btn btn-outline-success" to="/new">Navbar2</router-link>
-    <router-link class="btn btn-outline-success" to="/list">Navbar3</router-link>
+  <div v-if="loggedIn != null">
+    <h2 class="text-center customsubheader">Create or view journal entries</h2>
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <router-link class="btn btn-outline-success homebutton" to="/new">New entry</router-link>
+      </div>
+      <div class="col-md-6 text-center">
+        <router-link class="btn btn-outline-success homebutton" to="/list">Entry list</router-link>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
-  import { ref } from "vue";
-  import { getAuth, onAuthStateChanged } from "firebase/auth";
-  import { appFirebase } from "../firebase/config"
+  import { ref, onMounted } from "vue";
+  import { getUser } from "../firebase/config";
 
-  const auth = getAuth(appFirebase)
   const loggedIn = ref(null)
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
-      loggedIn.value = true;
-    } else {
-      loggedIn.value = false;
-    }
+  
+  onMounted(()=>{
+    initHome();
   });
 
+  async function initHome(){
+    try{
+      loggedIn.value = await getUser();
+    }
+    catch{
+      loggedIn.value = null;
+       console.log("no user")
+    }
+  }
+   
+
 </script>
+
+<style scoped>
+  .homebutton{
+    padding: 3em !important;
+  }
+  #customheader{
+    margin-top: 1em !important;
+  }
+  .customsubheader{
+    margin-top: 1em !important;
+    margin-bottom: 3em !important;
+  }
+</style>

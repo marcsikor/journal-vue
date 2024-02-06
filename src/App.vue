@@ -1,16 +1,20 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue'
-// import HelloWorld from './components/HelloWorld.vue'
+import Footer from './components/Footer.vue';
 </script>
 
 <template>
-  <NavBar />
-  <RouterView />
+  <main>
+    <NavBar />
+    <RouterView />
+  </main>
+  <Footer />
 </template>
 
 <style scoped>
-#app{
-  text-align: center;
+main{
+  position: relative;
+  min-height: 95vh;
 }
 </style>

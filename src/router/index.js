@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { getUser } from "../firebase/config"
 import HomeView from '../views/HomeView.vue'
 
 const router = createRouter({
@@ -29,7 +30,35 @@ const router = createRouter({
       name: 'list',
       component: () => import('../views/EntryList.vue')
     },
+    {
+      path: '/view/:id',
+      name: 'view',
+      component: () => import('../views/ViewEntry.vue')
+    },
+    {
+      path: '/edit/:id',
+      name: 'edit',
+      component: () => import('../views/EditEntry.vue')
+    },
   ]
+})
+
+router.beforeEach(async (to, from) => {
+  
+  let userStatus
+
+  try{
+    userStatus = await getUser();
+  } 
+  catch{
+    userStatus = null;
+  }
+
+  // console.log(userStatus == null)
+ if(!userStatus && to.name !== 'home' && to.name !== 'signin' && to.name !== 'signup'){
+    // alert('Please sign in to access this page');
+   return '/'
+ }
 })
 
 export default router
